@@ -1,0 +1,33 @@
+# This file is used to map services to nodes. 
+# Update this file to change the mapping.
+nginx_web_server: node2
+cast_info_memcached: node2
+cast_info_mongodb: node2
+cast_info_service: node2
+compose_review_memcached: node1
+compose_review_service: node2
+jaeger: node2
+movie_id_memcached: node2
+movie_id_mongodb: node2
+movie_id_service: node1
+movie_info_memcached: node1
+movie_info_mongodb: node1
+movie_info_service: node2
+movie_review_mongodb: node2
+movie_review_service: node2
+page_service: node1
+plot_memcached: node2
+plot_mongodb: node2
+plot_service: node1
+rating_redis: node2
+rating_service: node1
+review_storage_memcached: node1
+review_storage_mongodb: node1
+review_storage_service: node1
+text_service: node1
+unique_id_service: node2
+user_memcached: node1
+user_review_mongodb: node2
+user_review_redis: node2
+user_review_service: node1
+user_service: node2

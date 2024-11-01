@@ -1,0 +1,9 @@
+# This config file is used to fetch data from running DSB.
+DSB:
+  data_path: "/mydata/DSB/"
+  pull:
+    host_ip: 10.10.1.1
+    starttime: 1730480827099358
+    finishtime: 1730481708094612
+    num_traces: 30000
+    service: nginx-web-server
