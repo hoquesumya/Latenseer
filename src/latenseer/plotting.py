@@ -62,7 +62,7 @@ def plot_slacks(agg_service_slack, figname="slack_result.png"):
     data_df = pd.DataFrame(slack_dict)
     plt.figure(figsize=(12, 8))
 
-    colors = ['tab:blue', 'tab:orange', 'tab:green', 'tab:red','tab:black']
+    colors = ['tab:blue', 'tab:orange', 'tab:green', 'tab:red','tab:olive']
     lss = ['-', '--', ':', '-.',':']
     print("color len: ",len(colors))
     print("lss len: ",len(lss))
