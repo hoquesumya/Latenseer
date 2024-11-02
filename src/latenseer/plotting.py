@@ -55,12 +55,15 @@ def plot_slacks(agg_service_slack, figname="slack_result.png"):
             weights = list(pmf.values())
             slack_dict[service] = choices(values, weights, k=1000)
 
+    print("len of slack", slack_dict)
+
     data_df = pd.DataFrame(slack_dict)
     plt.figure(figsize=(12, 8))
 
     colors = ['tab:blue', 'tab:orange', 'tab:green', 'tab:red']
     lss = ['-', '--', ':', '-.']
-    
+    print("color len: ",len(colors))
+    print("lss len: ",len(lss))
     i = 0
     for key in slack_dict:
         latency = slack_dict[key]

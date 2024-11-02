@@ -169,7 +169,7 @@ class JSONParser(Parser):
             raise ValueError('starttime must be less than finishtime')
         
         url = "http://" \
-            + host_ip + ":27247/api/traces?limit=" \
+            + host_ip + ":12243/api/traces?limit=" \
             + str(num_traces) \
             + "&service=" + service \
             + "&start=" + str(starttime) \
