@@ -56,6 +56,8 @@ def plot_slacks(agg_service_slack, figname="slack_result.png"):
             slack_dict[service] = choices(values, weights, k=1000)
 
     print("len of slack", slack_dict)
+    for key in slack_dict:
+        print(key)
 
     data_df = pd.DataFrame(slack_dict)
     plt.figure(figsize=(12, 8))
