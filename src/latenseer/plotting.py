@@ -68,12 +68,13 @@ def plot_slacks(agg_service_slack, figname="slack_result.png"):
     #lss = ['-', '--', ':', '-.']
     colors = plt.cm.get_cmap('tab10', len(slack_dict))  # Use colormap for more colors
     lss = ['-', '--', ':', '-.'] * (len(slack_dict) // 4 + 1)
-    print("color len: ",len(colors))
+    #print("color len: ",len(colors))
     print("lss len: ",len(lss))
     i = 0
     for key in slack_dict:
         latency = slack_dict[key]
-        CDF(PMF(latency)).plot(xscale = 1, ls=lss[i], lw=8, marker='', color=colors[i], label=key)
+        #CDF(PMF(latency)).plot(xscale = 1, ls=lss[i], lw=8, marker='', color=colors[i], label=key)
+        CDF(PMF(latency)).plot(xscale=1, ls=lss[i], lw=4, marker='', color=colors(i), label=key)
         i += 1
 
     plt.xlabel('Slack Latency (ms)', fontsize=26)
