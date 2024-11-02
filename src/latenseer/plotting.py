@@ -63,9 +63,11 @@ def plot_slacks(agg_service_slack, figname="slack_result.png"):
     plt.figure(figsize=(18, 10))
     print("Unique ID Service values:", slack_dict["unique_id_service"])
     print("compose", slack_dict["compose_review_service"])
-
-    colors = ['tab:blue', 'tab:orange', 'tab:green', 'tab:red','tab:olive']
-    lss = ['-', '--', ':', '-.',':']
+    print("review", slack_dict["review_storage_service"])
+    #colors = ['tab:blue', 'tab:orange', 'tab:green', 'tab:red','tab:olive']
+    #lss = ['-', '--', ':', '-.']
+    colors = plt.cm.get_cmap('tab10', len(slack_dict))  # Use colormap for more colors
+    lss = ['-', '--', ':', '-.'] * (len(slack_dict) // 4 + 1)
     print("color len: ",len(colors))
     print("lss len: ",len(lss))
     i = 0
