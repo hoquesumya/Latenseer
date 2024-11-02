@@ -61,6 +61,8 @@ def plot_slacks(agg_service_slack, figname="slack_result.png"):
 
     data_df = pd.DataFrame(slack_dict)
     plt.figure(figsize=(18, 10))
+    print("Unique ID Service values:", slack_dict["unique_id_service"])
+    print("compose", slack_dict["compose_review_service"])
 
     colors = ['tab:blue', 'tab:orange', 'tab:green', 'tab:red','tab:olive']
     lss = ['-', '--', ':', '-.',':']
@@ -71,8 +73,6 @@ def plot_slacks(agg_service_slack, figname="slack_result.png"):
         latency = slack_dict[key]
         CDF(PMF(latency)).plot(xscale = 1, ls=lss[i], lw=8, marker='', color=colors[i], label=key)
         i += 1
-        if i == 4:
-            break
 
     plt.xlabel('Slack Latency (ms)', fontsize=26)
     plt.ylabel('CDF', fontsize=26)
