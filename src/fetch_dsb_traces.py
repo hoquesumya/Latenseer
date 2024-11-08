@@ -21,7 +21,7 @@ args = my_parser.parse_args()
 config_path = '/users/suho/LatenSeer/src/config/config.yml'
 jsonparser = JSONParser(config_path)
 #traces = jsonparser.pull_traces()
-traces = jsonparser.handle_traces('/Users/sumyahoque/LatenSeer/src/compose_review_data/compose-review-default.json')
+traces = jsonparser.handle_traces('/Users/sumyahoque/LatenSeer/src/compose_review_data/compose-review-collecting.json')
 print(len(traces))
 
 ## Convert json traces to csv format
