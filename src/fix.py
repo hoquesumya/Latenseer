@@ -1,8 +1,8 @@
 import csv
 
 # Define the input and output file paths
-input_file = "/Users/sumyahoque/LatenSeer/src/rps10/s0.1/mix136/local_collect.csv"
-output_file = "local_collect.csv"
+input_file = "/Users/sumyahoque/LatenSeer/src/rps10/s0.1/mix136/local_using.csv"
+output_file = "local_using.csv"
 
 # Open the input file in read mode and output file in write mode
 with open(input_file, 'r') as infile, open(output_file, 'w') as outfile:
