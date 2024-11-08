@@ -20,11 +20,12 @@ args = my_parser.parse_args()
 ## Pull traces from jaeger
 config_path = '/users/suho/LatenSeer/src/config/config.yml'
 jsonparser = JSONParser(config_path)
-traces = jsonparser.pull_traces()
+#traces = jsonparser.pull_traces()
+traces = jsonparser.handle_traces('/Users/sumyahoque/LatenSeer/src/compose_review_data/compose-review-default.json')
 print(len(traces))
 
 ## Convert json traces to csv format
-filepath = '/users/suho/LatenSeer/src/' \
+filepath = '/Users/sumyahoque/LatenSeer/src/' \
             + '/rps' + str(args.rps) \
             + '/s' + args.sample \
             + '/' + str(args.workload)
@@ -34,4 +35,4 @@ filename = str(args.type) + '.csv'
 if not os.path.exists(filepath):
     os.makedirs(filepath)
 
-jsonparser.convert_json_to_csv(traces, filepath + '/' + filename)
+jsonparser.convert_json_to_csv_slack(traces, filepath + '/' + filename)

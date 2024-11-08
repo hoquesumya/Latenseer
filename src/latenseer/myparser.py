@@ -146,6 +146,7 @@ class JSONParser(Parser):
     def __init__(self, config_path=None) -> None:
         super().__init__()
         self.config_path = config_path
+
         
     def pull_traces(self):
         """
@@ -183,6 +184,50 @@ class JSONParser(Parser):
         response = json.loads(response.text)
         traces = response['data']
         return traces
+   
+    def handle_traces(self, json_path):
+        with open(json_path, 'r') as file:
+            data = json.load(file)
+        return data['data']
+            
+    def convert_json_to_csv_slack(self, traces, filepath='traces.csv'):
+        header = ['traceid', 
+                  'spanid', 
+                  'parentid',
+                  'dm', 
+                  'interface', 
+                  'timestamp', 
+                  'rt',
+                  ]
+        with open(filepath, 'w') as f:
+            writer = csv.writer(f)
+            writer.writerow(header)
+            for trace in tqdm(traces):
+                traceId = trace['traceID']
+                spans = trace['spans']
+                for span in spans:
+                    spanId = span['spanID']
+                    operationName = span['operationName'].replace('-', '_').replace('/', '_')
+                    if spanId != traceId:
+                        parentId = span['references'][0]['spanID']
+                    else:
+                        parentId = None
+                    # duration =round(span['duration'] / 1000, 2)
+                    duration = span['duration']
+                    processId = span['processID']
+                    service = trace['processes'][processId]['serviceName']
+                    service = service.replace('-', '_')
+                    startTime = span['startTime']
+                    span_data = [traceId, 
+                                 spanId, 
+                                 parentId, 
+                                 service, 
+                                 operationName, 
+                                 startTime, 
+                                 duration,
+                                 ]
+                    writer.writerow(span_data)
+        
     
     def convert_json_to_csv(self, traces, filepath='traces.csv'):
         """
