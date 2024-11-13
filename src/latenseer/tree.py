@@ -311,7 +311,7 @@ class Tree(object):
                 df = self.trace_df
             else:
                 raise ValueError("Either trace_path or trace_df must be provided")
-            
+            print(df.columns)
             traceids = df['traceid'].unique()
         
             # tmp_remove_ids = df[df['dm'] == 'd2708']['traceid'].unique()
